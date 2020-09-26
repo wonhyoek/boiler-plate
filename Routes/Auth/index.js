@@ -1,6 +1,7 @@
 import express from "express";
 import AuthRegister from './AuthRegister';
 import AuthLogin from './AuthLogin';
+import AuthLogout from "./AuthLogout";
 import auth from "../../middleware/auth";
 
 const router = express.Router();
@@ -19,6 +20,7 @@ router.get('/', auth, (req, res) => {
 });
 router.post('/register', AuthRegister);
 router.post('/login', AuthLogin);
+router.get('/logout', auth, AuthLogout);
 
 
 export default router;
