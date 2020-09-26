@@ -3,9 +3,10 @@ const app = express();
 const port = 5000;
 const mongoose = require("mongoose");
 const Auth = require('./Routes/Auth');
+const config = require('./Config/key');
 
 //mongoDB setting
-mongoose.connect('mongodb+srv://wonhyoek:ab8975@cluster0.jls2e.mongodb.net/<dbname>?retryWrites=true&w=majority', {
+mongoose.connect(config.mongoURI, {
     useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false
 }).then(() => console.log('MongoDB connected...'))
     .catch(err => console.log(err));
