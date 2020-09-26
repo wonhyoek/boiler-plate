@@ -4,6 +4,7 @@ const port = 5000;
 const mongoose = require("mongoose");
 import Auth from './Routes/Auth';
 const config = require('./Config/key');
+import cookieParser from "cookie-parser";
 
 //mongoDB setting
 mongoose.connect(config.mongoURI, {
@@ -15,6 +16,7 @@ mongoose.connect(config.mongoURI, {
 //middleware setting
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+app.use(cookieParser());
 
 
 //router setting
