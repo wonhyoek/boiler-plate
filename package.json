@@ -15,7 +15,7 @@
     "nodemon": "^2.0.4"
   },
   "scripts": {
-    "start": "nodemon --exec babel-node index.js"
+    "start": "nodemon --exec babel-node server/index.js"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.11.5"
