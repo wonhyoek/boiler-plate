@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const port = 5000;
 const mongoose = require("mongoose");
-const Auth = require('./Routes/Auth');
+import Auth from './Routes/Auth';
 const config = require('./Config/key');
 
 //mongoDB setting

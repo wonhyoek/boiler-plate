@@ -1,11 +1,12 @@
-const express = require("express");
+import express from "express";
+import AuthRegister from './AuthRegister';
+import AuthLogin from './AuthLogin';
+
 const router = express.Router();
-const AuthRegister = require('./AuthRegister');
-const AuthLogin = require('./AuthLogin')
 
 router.get('/', (req, res) => res.send('Clear'));
 router.post('/register', AuthRegister);
 router.post('/login', AuthLogin);
 
 
-module.exports = router;
+export default router;

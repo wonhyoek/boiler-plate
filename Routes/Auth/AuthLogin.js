@@ -1,34 +1,30 @@
-const bcrypt = require('bcrypt');
-const User = require('../../Models/User');
-const jwt = require('jsonwebtoken');
+import bcrypt from "bcrypt";
+import User from '../../Models/User';
+import jwt from 'jsonwebtoken';
 
-module.exports = (req, res) => {
-    User.findOne({email: req.body.email}, (err, user) => {
-        if(err){
-            console.log('No User Exist');
-            return res.json({success: false, err})
+const Login = async (req, res) => {
+   try{
+        const user = await User.findOne({email: req.body.email});
+
+        if(!user){
+            console.log('No User Exists');
+            return res.json({success: false, err});
         }
-        bcrypt.compare(req.body.password, user.password, function(err, result) {
-            if(!result){
-                console.log('Not correct password');
-                return res.json({success: false, err})
-            } else {
-                jwt.sign(user._id.toHexString(), 'secretKey', function(err, token) {
-                    if(err){
-                        console.log(err);
-                        return res.json({success: false, err})
-                    }
-                    user.token = token;
-                    user.save((err, user) => {
-                        if(err){
-                            console.log(err);
-                            return res.json({success: false, err})
-                        }
-                        return res.json({success: true, token: user.token})
-                    })
-                });
-            }
-            
-        });
-    })
+
+        const comparePassword = await bcrypt.compareSync(req.body.password, user.password);
+
+        if(!comparePassword){
+            console.log('Unvalid Password');
+            return res.json({success: false, err})
+        } else {
+            const token = await jwt.sign(user._id.toHexString(), 'secretKey');
+            user.token = token;
+            await user.save();
+            return res.json({success: true, token: user.token});
+        }
+   } catch(e){
+        console.log(e);
+   }
 }
+
+export default Login;
