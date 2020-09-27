@@ -4,9 +4,12 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { loginUser } from '../../../_actions/user_actions';
 
 export default () => {
   const history = useHistory();
+  const dispatch = useDispatch();
 
     const formik = useFormik({
       initialValues: {
@@ -21,14 +24,13 @@ export default () => {
         .required("Required!")
       }),
       onSubmit: values => {
-        axios.post('/api/auth/login', values)
+        dispatch(loginUser(values))
         .then(response => {
-          if(response.data.success){
-            window.localStorage.setItem('userId', response.data.userId);
+          if(response.payload.success){
             alert('Login Success');
             history.push('/');
-          } else {
-            alert('Failed Login');
+          }else {
+            alert('Login Failed')
           }
         })
       }

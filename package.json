@@ -16,6 +16,10 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.7",
     "nodemon": "^2.0.4",
+    "react-redux": "^7.2.1",
+    "redux": "^4.0.5",
+    "redux-promise": "^0.6.0",
+    "redux-thunk": "^2.3.0",
     "yup": "^0.29.3"
   },
   "scripts": {
