@@ -12,9 +12,11 @@
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "formik": "^2.1.5",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.7",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "yup": "^0.29.3"
   },
   "scripts": {
     "backend": "nodemon --exec babel-node server/index.js",
