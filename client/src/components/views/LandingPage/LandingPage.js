@@ -3,10 +3,7 @@ import axios from "axios";
 
 export default () => {
 
-    useEffect(() => {
-        axios.get('/hello')
-        .then(response => console.log(response))
-    }, [])
+    
 
     return (
         <div>

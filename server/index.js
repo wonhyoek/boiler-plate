@@ -23,9 +23,6 @@ app.use(cors());
 
 //router setting
 app.use('/api/auth', Auth);
-app.get('/hello', (req, res) => {
-    res.send('hello');
-})
 
 
 app.listen(port, () => console.log(`Server Running on ${port}`));
