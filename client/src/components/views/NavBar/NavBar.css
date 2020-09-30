@@ -1,0 +1,46 @@
+.navbar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid none;
+    box-shadow: 1px 1px 1px lightgray;
+    background-color: white;
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 85%;
+}
+
+.navbar-logo {
+    font-size: 30px;
+    color:  rgb(47, 255, 75);
+}
+
+.authBtn {
+    display: flex;
+}
+
+.signBtn {
+    font-size: 20px;
+    color: rgb(47, 255, 75);
+
+}
+
+.signBtn:first-child {
+    margin-right: 35px;
+}
+
+.signOutBtn {
+    font-size: 20px;
+    color: rgb(47, 255, 75);
+    border: none;
+    background-color: white;
+}

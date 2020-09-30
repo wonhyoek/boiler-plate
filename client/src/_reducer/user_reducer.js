@@ -9,6 +9,8 @@ export default function (state = {}, action){
         case "AUTH_USER": 
             return {...state, userData: action.payload}
             break;
+        case "LOGOUT_USER":
+            return {...state, logoutSuccess: action.payload}
         default:
             return state;
     }
