@@ -39,9 +39,9 @@ export default () => {
                         </div>
                     </div>
                 ) : (
-                    <button className = 'signOutBtn' onClick = {signOutHandler}>
+                    <div className = 'signOutBtn' onClick = {signOutHandler}>
                         Sign Out
-                    </button>
+                    </div>
                 )}
             </div>
         </nav>
